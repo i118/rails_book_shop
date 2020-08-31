@@ -1,24 +1,12 @@
 <p id="notice"><%= notice %></p>
+<div style="text-align: center; width: auto; margin: auto">
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+  <h3><%= @product.title %></h3>
+  <%= image_tag @product.image_url, size: '500' %>
+  <br>
+  <p><%= @product.description %></p>
+  <h4><strong>Price: </strong><%= @product.price %>$</h4>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+</div>
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-success" %>
+<%= link_to 'Back', products_path, class: "btn btn-info" %>
