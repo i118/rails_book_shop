@@ -1,0 +1,27 @@
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: new_shop
+  host: localhost
+  pool: 5
+  username: postgres
+  password: samurai7521
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: cwc
+  host: localhost
+  pool: 5
+  username: postgres
+  password: <%= ENV['MyDatabase_Password'] %>
+  role: MyRole
