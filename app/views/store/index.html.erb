@@ -1,0 +1,33 @@
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <div id="cart">
+      <%= render @cart %>
+    </div>
+  </div>
+</section>
+
+<main role="main">
+  <div class="container">
+
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <%= image_tag product.image_url %>
+            <div class="card-body">
+              <h5 class="cart-title"><%= product.title %></h5>
+              <p class="card-text"><%= sanitize(product.description) %></p> <!-- truncate strip_tags(product.description), length: 80 этот метод  будет показывать только первые 80 символов -->
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><h5><%= product.price %> $</h5></small>
+                <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true, class: "btn btn-success" %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</main>

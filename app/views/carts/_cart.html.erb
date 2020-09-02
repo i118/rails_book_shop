@@ -1,0 +1,21 @@
+<h1 style="text-align: center">Your Cart</h1>
+<table class="table" style=" margin: auto">
+
+    <thead>
+    <tr>
+        <th>Quantity</th>
+        <th>Title</th>
+        <th>Price </th>
+    </tr>
+    </thead>
+  <tbody>
+  <%= render(cart.line_items) %>
+  <tr class="total_line">
+    <td colspan="2" style="font-weight: bold">Total</td>
+    <td class="total_cell" style="font-weight: bold"><%= cart.total_price %> $</td>
+  </tr>
+  </tbody>
+</table>
+<div style="text-align: center">
+  <%= button_to 'Empty cart', cart, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %>
+</div>

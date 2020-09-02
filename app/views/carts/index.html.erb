@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align: center; width: 500px; margin: auto">Carts</h1>
+
+<table class="table" style="text-align: center; width: auto; margin: auto">
+  <thead>
+    <tr>
+      <th scope="col">ID корзины</th>
+      <th scope="col">Дейсвия</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.id %></td>
+        <td><%= link_to 'Show', cart, class: "btn btn-primary sam" %><%= link_to 'Edit', edit_cart_path(cart), class: "btn btn-primary sam" %><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger sam" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
