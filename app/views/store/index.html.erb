@@ -13,7 +13,7 @@
     <div class="row">
       <% @products.each do |product| %>
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+          <div class="card mb-4 shadow-sm entry">
             <%= image_tag product.image_url %>
             <div class="card-body">
               <h5 class="cart-title"><%= product.title %></h5>

@@ -1,3 +1,4 @@
+<% unless cart.line_items.empty? %>
 <h1 style="text-align: center">Your Cart</h1>
 <table class="table" style=" margin: auto">
 
@@ -19,3 +20,4 @@
 <div style="text-align: center">
   <%= button_to 'Empty cart', cart, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %>
 </div>
+<% end %>
