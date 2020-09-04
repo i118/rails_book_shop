@@ -2,6 +2,7 @@ class Product < ApplicationRecord
 
   has_many :line_items # множество связей c товарными позициями
   # говорит о том что дальнейшее существование товарных позиций в cart нет если product удаленна
+  has_many :orders, through: :line_items
   before_destroy :ensure_not_referenced_by_any_line_item # здесь мы  обьявляем метод
   # тоесть перед уничтожением будет вызыватся метод
 
