@@ -5,7 +5,7 @@ class CombineItemsInCart < ActiveRecord::Migration[5.2]
       sums = cart.line_items.group(:product_id).sum(:quantity)
       sums.each do |product_id, quantity|
         if quantity > 1
-          # удаление отдалных записей
+          # удаление отдельных записей
           cart.line_items.where(product_id: product_id).delete_all
           # заменна одного записей
           cart.line_items.create(product_id: product_id, quantity: quantity)
@@ -24,6 +24,6 @@ class CombineItemsInCart < ActiveRecord::Migration[5.2]
   end
 end
 
-# Сначала задается перебор содержимого каждого корзины
-# Для каждой корзины мы получаем сумму значений  полей количества (quantity)
+# Сначала задается перебор содержимого каждой корзины
+# Для каждой корзины мы получаем сумму значений полей количества (quantity)
 #
